@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  background-color: aliceblue;
+}
+* input[type=number]::-webkit-outer-spin-button,
+* input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+* #postDataBtn {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24rem;
+  height: 5rem;
+  font-size: 2rem;
+}
+* #postDataBtn:hover {
+  cursor: pointer;
+}
+* #postDataBtn:active {
+  background-color: aquamarine;
+}
+* #postDataInput {
+  position: absolute;
+  font-size: 2rem;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=HETU_C.css.map */
