@@ -36,26 +36,8 @@ function movePod(value, value2) {
             'Content-Type': 'application/json',
         }
     }
-
-    /* 원래 썼던거
-    //json data send
-    let request_movePod = {
-        WarehouseID: "HETU",
-        RequestID: `${now}`,
-        RequestTime: `${formattedDate}`,
-        ClientCode: 'BIZ',                  //WES?
-        RobotID:101,
-        SrcType: 1,
-        PodID: `${value}`,
-        DesType: 7,
-        extParams: { 'unLoad': 1 },
-        candidateStorageIDs: `${value2}`,
-        //desStationCodes: "1.14"
-        //desStorageID: `${value2}`         //DesType: 2
-        //desZoneCode: `${value2}`,         //XD5
-        //desNodeID: `${value2}`
-    }
-    */
+    /*
+    //desZoneCode(Select Area XD5)
     let request_movePod = {
         "warehouseID": "HETU",
         "requestID": `${now}`,
@@ -68,7 +50,22 @@ function movePod(value, value2) {
         "taskExt": { "keepRobot": 0 },
         "desZoneCode": `${value2}`
     }
+    */
 
+    //desStationCodes(Select Station OUT) "value2"에 "OUT" 넣으면 된다.
+    let request_movePod = {
+        "warehouseID": "HETU",
+        "requestID": `${now}`,
+        "clientCode": 'WES',
+        "desType": 5,
+        "srcType": 1,
+        "replacePodTask": 0,
+        "podID": `${value}`,
+        "desExt": { "unLoad": 1 },
+        "taskExt": { "keepRobot": 0 },
+        "desStationCodes": `${value2}`
+    }
+ 
     /*
     //개인 컨트롤, 같은 맵만 가능(엘레베이터 안됨)
         const options_status = {
@@ -83,15 +80,15 @@ function movePod(value, value2) {
     
         //json data send
         let request_movePod = {
-            WarehouseID: "HETU", //첫글자 대문자 구분해야함...
+            warehouseID: "HETU",
             requestID: `${now}`,
             requestTime: `${formattedDate}`, 
-            ClientCode: 'SUPER',
-            RobotID: '101',
-            SrcType: 1,
+            clientCode: 'SUPER',
+            robotID: '101',
+            srcType: 1,
             podID: `${value}`,
             extParams: { "unLoad": 1 },
-            DesType: 1,
+            desType: 1,
             desNodeID: '1.13',
             //AutoToRest: 1
         }
