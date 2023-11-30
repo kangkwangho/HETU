@@ -66,25 +66,8 @@ function movePod(value, value2) {
         "podID": `${value}`,
         "desExt": { "unLoad": 1 },
         "taskExt": { "keepRobot": 0 },
-        "desZoneCode": `${value2}`,
+        "desZoneCode": `${value2}`
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     //개인 컨트롤, 같은 맵만 가능(엘레베이터 안됨)
