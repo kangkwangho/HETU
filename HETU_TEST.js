@@ -37,12 +37,13 @@ function movePod(value, value2) {
         }
     }
 
+    /* 원래 썼던거
     //json data send
     let request_movePod = {
         WarehouseID: "HETU",
         RequestID: `${now}`,
         RequestTime: `${formattedDate}`,
-        ClientCode: 'BIZ',
+        ClientCode: 'BIZ',                  //WES?
         RobotID:101,
         SrcType: 1,
         PodID: `${value}`,
@@ -50,10 +51,41 @@ function movePod(value, value2) {
         extParams: { 'unLoad': 1 },
         candidateStorageIDs: `${value2}`,
         //desStationCodes: "1.14"
-        //desStorageID: `${value2}`                   //DesType: 2
-        //desZoneCode: `${value2}`,             //XD5
+        //desStorageID: `${value2}`         //DesType: 2
+        //desZoneCode: `${value2}`,         //XD5
         //desNodeID: `${value2}`
     }
+    */
+    let request_movePod = {
+        "warehouseID": "HETU",
+        "requestID": `${now}`,
+        "clientCode": 'WES',
+        "desType": 7,
+        "srcType": 1,
+        "replacePodTask": 0,
+        "podID": `${value}`,
+        "desExt": { "unLoad": 1 },
+        "taskExt": { "keepRobot": 0 },
+        "desZoneCode": `${value2}`,
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     //개인 컨트롤, 같은 맵만 가능(엘레베이터 안됨)
         const options_status = {
